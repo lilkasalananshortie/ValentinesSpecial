@@ -3,80 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For my baby</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
+    <title>My Baby Invitation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <audio autoplay hidden>
+    <audio autoplay hidden loop>
         <source src="/audio/Ed Sheeran - Photograph (Official Lyric Video).mp3" type="audio/mpeg">
     </audio>
 
-   <section class="page">
-  <h2 class="main-heading">TO MY BABY!!!</h2>
-
-  <div class="video-container">
-    <video autoplay muted loop>
-      <source src="/images/VIDMAIN.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="scroll-section">
-    <img src="/images/scroll.gif" class="arrow">
-    <h2 class="scroll-text">SCROLL DOWN</h2>
-    <img src="/images/scroll.gif" class="arrow">
-  </div>
-</section>
-
-<div class="scroll-container">
-    <section class="page" id="page1">
-        <div class="intro">
-            <h1 class="main-title">Hello Alwina, My Baby this one is for you :p</h1>
-            <button id="startBtn" class="pink-button">Click to Open Invitation</button>
-        </div>
-    </section>
-
-<section class="page" id="page2">
-    <div id="reveal-container" class="hidden-content">
-        <div class="valentine-layout">
-            <div class="side-column">
-                <img src="/images/IMG_5227.jpeg" class="pop-up-img" alt="img">
-                <img src="/images/IMG_5226.jpeg" class="pop-up-img" alt="img">
-                <img src="/images/IMG_5225.jpeg" class="pop-up-img" alt="img">
+    <div class="scroll-container">
+        <section class="page">
+            <h2 class="main-heading">TO MY BABY!!!</h2>
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="/images/VIDMAIN.mp4" type="video/mp4">
+                </video>
             </div>
+            <div class="scroll-section">
+                <img src="/images/scroll.gif" class="arrow">
+                <h2 class="scroll-text">SCROLL DOWN</h2>
+                <img src="/images/scroll.gif" class="arrow">
+            </div>
+        </section>
 
-            <div class="center-column">
-                <h2>Hellow BOSSING, this is me formally asking you out for upcoming valetines day!!!</h2>
-                <div class="three-paragraph">
-                    <p>📍 WHERE? <br> POUND <br>Upper Ground Level sa SM NORTH (ON ME!!)</p>
-                    <p>⌛ WHEN? <br> FEBUARY 15 2025!!!</p>
-                    <p>📝 PLAN? <br> febuary 14 pupunta ako after school and then sa 15 po tayo aalis.</p>
+        <section class="page" id="page1">
+            <div class="intro">
+                <h1 class="main-title">Hello Alwina, My Baby this one is for you :p</h1>
+                <button id="startBtn" class="pink-accept">Click to Open Invitation</button>
+            </div>
+        </section>
+
+        <section class="page" id="page2">
+            <div id="reveal-container" class="hidden-content">
+                <div class="valentine-layout">
+                    <div class="side-column">
+                        <img src="/images/IMG_5227.jpeg" class="pop-up-img">
+                        <img src="/images/IMG_5226.jpeg" class="pop-up-img">
+                        <img src="/images/IMG_5225.jpeg" class="pop-up-img">
+                    </div>
+
+                    <div class="center-column">
+                        <h2>Hellow BOSSING, this is me formally asking you out for upcoming valetines day!!!</h2>
+                        <div class="three-paragraphs">
+                            <p>📍 WHERE? <br> POUND, SM NORTH</p>
+                            <p>⌛ WHEN? <br> FEBRUARY 15 2025!!!</p>
+                            <p>📝 PLAN? <br> Pupunta ako after school then sa 15 tayo aalis.</p>
+                        </div>
+                        <div class="button-container">
+                            <button id="acceptBtn" class="pink-button">Accept</button>
+                            <button id="rejectBtn" class="pink-button">Reject</button>
+                        </div>
+                    </div>
+
+                    <div class="side-column">
+                        <img src="/images/IMG_5221.jpeg" class="pop-up-img">
+                        <img src="/images/IMG_5222.jpeg" class="pop-up-img">
+                        <img src="/images/IMG_5224.jpeg" class="pop-up-img">
+                    </div>
                 </div>
-
-                <div class="button-container">
-                    <button id="acceptBtn" class="pink-button">Accept</button>
-                    <button id="rejectBtn" class="pink-button" style="background-color: #ff69b4;">Reject</button>
-                </div>
             </div>
+        </section>
 
-            <div class="side-column">
-                <img src="/images/IMG_5221.jpeg" class="pop-up-img" alt="img">
-                <img src="/images/IMG_5222.jpeg" class="pop-up-img" alt="img">
-                <img src="/images/IMG_5224.jpeg" class="pop-up-img" alt="img">
-            </div>
-        </div>
+      <section class="page" id="page3" style="display: none;">
+    <div id="rain-container"></div>
+    
+    <div class="success-box">
+        <h1>SEE YOU ON THE 15th! ❤️</h1>
     </div>
-</section>
-    <script>
-        const video = document.querySelector('video')
-        video.muted = true;
-        video.volume = 0;
-    </script>
 
- <script src="/files/commands.js"></script>
+    <button id="resetBtn" class="pink-button">Watch Rain Again</button>
+</section>
+    </div>
+
+    <script src="/files/commands.js"></script>
 </body>
 </html>
