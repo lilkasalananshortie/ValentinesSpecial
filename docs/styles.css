@@ -1,6 +1,6 @@
-/* --- GLOBAL & FONT --- */
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
+/* --- GLOBAL --- */
 html, body {
   margin: 0;
   padding: 0;
@@ -12,31 +12,22 @@ html, body {
   overflow-x: hidden;
 }
 
-/* --- LANDING PAGE: ENVELOPE (index.html) --- */
-/* This section fixes the "Spend Valentines with..." text visibility */
+/* --- FRONT PAGE --- */
 .frontText {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers everything vertically */
-  align-items: center;     /* Centers everything horizontally */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background-image: url('/images/heartsBg.jpg');
+  background-image: url('images/heartsBg.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.frontText h1 {
-  margin-bottom: 5px;
-  font-size: 40px;
-}
-
-.frontText h2 {
-  margin-top: 5px;
-  font-size: 30px;
-  color: #ffb6c1; /* Soft pink to match the theme */
-}
+.frontText h1 { font-size: 40px; margin-bottom: 5px; }
+.frontText h2 { font-size: 30px; margin-top: 5px; color: #ffb6c1; }
 
 .envelope-container {
   display: flex;
@@ -46,38 +37,20 @@ html, body {
   margin-top: 20px;
 }
 
-.envelope-container .envelope {
-  width: 300px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+.envelope-container .envelope { width: 300px; height: auto; cursor: pointer; transition: transform 0.3s; }
+.envelope-container .envelope:hover { transform: scale(1.1); }
 
-.envelope-container .envelope:hover {
-  transform: scale(1.1);
-}
+.envelope-container .arrow { width: 100px; height: auto; margin-top: 10px; }
+.envelope-container h1.click-text { font-size: 1.5rem; margin-top: 10px; }
 
-.envelope-container .arrow {
-  width: 100px; 
-  height: auto;
-  margin-top: 10px;
-}
-
-.envelope-container h1.click-text {
-  font-size: 1.5rem;
-  margin-top: 10px;
-}
-
-/* --- INVITATION SCROLL SYSTEM (about.html) --- */
+/* --- SCROLL CONTAINER --- */
 .scroll-container {
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
 
-.scroll-container::-webkit-scrollbar {
-  display: none;
-}
+.scroll-container::-webkit-scrollbar { display: none; }
 
 .page {
   min-height: 100vh;
@@ -85,16 +58,16 @@ html, body {
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers Video/Content Vertically */
-  align-items: center;     /* Centers Video/Content Horizontally */
-  background-image: url('/images/heartsBg.jpg');
+  justify-content: center;
+  align-items: center;
+  background-image: url('images/heartsBg.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
   overflow: hidden;
 }
 
-/* --- VIDEO CENTERING --- */
+/* --- VIDEO --- */
 .video-container {
   display: flex;
   justify-content: center;
@@ -111,13 +84,9 @@ video {
   border: 5px solid white;
 }
 
-.main-heading {
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 10px;
-}
+.main-heading { font-size: 40px; text-align: center; margin-bottom: 10px; }
 
-/* --- SCATTERED RAIN SYSTEM --- */
+/* --- SCATTERED RAIN --- */
 #rain-container {
   position: absolute;
   top: 0;
@@ -130,73 +99,63 @@ video {
 
 .falling-img {
   position: absolute;
-  width: 80px; 
-  border: 4px solid white; 
+  width: 80px;
+  border: 4px solid white;
   border-radius: 8px;
-  top: -150px; /* Start above screen */
+  top: -150px;
   z-index: 6;
 }
 
-/* --- SCRAPBOOK LAYOUT (PAGE 2) --- */
-.valentine-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  width: 95%;
-}
+/* --- SCRAPBOOK --- */
+.valentine-layout { display: flex; justify-content: center; align-items: center; gap: 40px; width: 95%; }
+.side-column { display: flex; flex-direction: column; gap: 20px; }
+.center-column { text-align: center; max-width: 600px; }
 
-.side-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+/* Hidden container fade */
+.hidden-content { opacity: 0; transition: opacity 1s ease-in-out; }
+.hidden-content.visible { opacity: 1; }
 
-.center-column {
-  text-align: center;
-  max-width: 600px;
-}
-
-.hidden-content {
+/* --- SCRAPBOOK TITLE ANIMATION --- */
+#page2 h2 {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  display: inline-block;
 }
 
-.hidden-content.visible {
+#page2 h2.show {
   opacity: 1;
+  transform: translateY(0);
 }
 
+/* --- POP-UP IMAGES WITH TILT --- */
 .pop-up-img {
-  width: 150px; 
+  width: 150px;
   height: auto;
   border: 6px solid white;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   opacity: 0;
+  transform: translateY(50px) rotate(0deg);
   transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .pop-up-img.show {
   opacity: 1;
+  transform: translateY(0) rotate(var(--rotation, 0deg));
 }
-
-/* Scrapbook Rotations */
-.side-column img:nth-child(1) { transform: translateY(50px) rotate(-10deg); transition-delay: 0.1s; }
-.side-column img:nth-child(2) { transform: translateY(50px) rotate(10deg);  transition-delay: 0.3s; }
-.side-column img:nth-child(3) { transform: translateY(50px) rotate(-5deg);  transition-delay: 0.5s; }
-
-.pop-up-img.show { transform: translateY(0) rotate(inherit); }
 
 /* --- BUTTONS --- */
 .button-container {
-  margin-top: 30px;
   display: flex;
   gap: 20px;
   justify-content: center;
+  margin-top: 30px;
 }
+
 .pink-accept, .pink-button {
   font-family: "Fugaz One", sans-serif;
   font-size: 24px;
-  background-color: #ffb6c1; 
+  background-color: #ffb6c1;
   color: white;
   border: none;
   padding: 12px 35px;
@@ -211,71 +170,12 @@ video {
   background-color: #ff99aa;
 }
 
-#startBtn {
-  position: absolute;
-  top: 60%;         
-  left: 50%;
-  transform: translate(-50%, -50%); 
-}
-
-
-.button-container {
-  display: flex;     
-  gap: 20px;         
-  justify-content: center;
-  margin-top: 30px;
-  position: relative;
-}
-
-
-#rejectBtn {
-  background-color: #ff69b4;
-  position: relative; 
-}
-
-
-#resetBtn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 14px;
-  padding: 8px 15px;
-  opacity: 0.7;
-}
-
+#startBtn { position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); }
+#rejectBtn { background-color: #ff69b4; position: relative; }
+#resetBtn { position: absolute; bottom: 20px; right: 20px; font-size: 14px; padding: 8px 15px; opacity: 0.7; }
 
 .success-box h1 {
-    font-size: 100px;
-    text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
-    pointer-events: none; 
-}
-
-.three-paragraphs {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  text-align: center;
-}
-
-.three-paragraphs p {
-  font-size: 22px;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.scroll-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.scroll-text {
-  font-size: 24px;
-}
-
-.success-box {
-  z-index: 100;
-  text-align: center;
+  font-size: 100px;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+  pointer-events: none;
 }
